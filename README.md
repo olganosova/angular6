@@ -25,3 +25,29 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+node -v
+v8.11.1
+npm -v
+6.0.0
+npm install -g @angular/cli
+ng new angular6-start
+ng serve --host 0.0.0.0 --port 3000
+
+SASS:
+npm install node-sass --save-dev
+in angular.json:
+"schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+       "styles": [
+                      "src/styles.scss"
+                    ],
+                    
+MATERIAL
+ng add @angular/material
+app.module.ts:
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
