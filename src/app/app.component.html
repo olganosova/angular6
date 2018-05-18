@@ -27,12 +27,12 @@
     [opened]="!(isHandset | async)!.matches">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#/dashboard">Dashboard</a>
-      <a mat-list-item href="#/login">Login</a>
+      <a mat-list-item  [routerLink]="['/dashboard']">Dashboard</a>
+      <a mat-list-item [routerLink]="['/login']">Login</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content >
     <mat-toolbar color="primary">
       <button
         type="button"
@@ -44,7 +44,25 @@
       </button>
       <span>Application Title</span>&nbsp;
     </mat-toolbar>
-    <button (click)="openDialog()">Open Dialog</button>
+    <br/>
+
+    <button mat-raised-button mat-primary color="primary" (click)="openDialog()">Open Dialog</button>
+    <button mat-raised-button mat-primary color="default" (click)="getJSON()">Get JSON</button>
+    <br/><br/>
+<p>{{errorMessage}}</p>
+    <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteSeason">
+      <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+        {{season}}
+      </mat-radio-button>
+    </mat-radio-group>
+<br/>
+
+    <mat-radio-group class="example-radio-group"  [(ngModel)]="optionSelection">
+      <mat-radio-button [value]="options[0]">Option 1</mat-radio-button>
+      <mat-radio-button [value]="options[1]">Option 2</mat-radio-button>
+    </mat-radio-group>
+      <p> Selected value: {{optionSelection}} </p>
+
     <router-outlet></router-outlet>
 
   </mat-sidenav-content>

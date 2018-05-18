@@ -1,1 +1,22 @@
+.course-dialog-container{
+  width: 400px;
+}
 
+.complexity-radio-group{
+  display: inline-flex;
+  flex-direction: column;
+}
+.complexity-radio-button {
+  margin: 5px;
+}
+
+.complexity-selected-value {
+  margin: 15px 0;
+}
+.material-icons{
+  font-size:36px !important;
+  color:green;
+}
+::ng-deep .mat-calendar-body-cell-content{
+  color:green;
+}
