@@ -8,8 +8,8 @@ import {CourseDialogComponentComponent} from './dialogs/course-dialog-component/
 import {HttpService} from './common/services/http.service';
 import {ConfigService} from './common/services/config.service';
 import {BroadcasterService} from "./common/services/broadcaster.service";
-import { State } from "./state-management/state/main-state";
-import { OPEN_DIALOG } from "./state-management/actions/main-action-creator";
+import { State, OPEN_DIALOG, SAVE_DIALOG } from "./state-management/state/main-state";
+
 
 @Component({
   selector: 'app-root',

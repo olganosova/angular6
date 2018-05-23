@@ -1,6 +1,6 @@
 import {ActionReducer, Action} from "@ngrx/store";
-import {State, intitialState} from "../state/main-state";
-import {OPEN_DIALOG, SAVE_DIALOG} from "../actions/main-action-creator";
+import {State, intitialState, OPEN_DIALOG, SAVE_DIALOG} from "../state/main-state";
+
 
 export const mainStoreReducer: ActionReducer<State> =
   (state = intitialState, action: Action) => {

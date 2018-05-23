@@ -5,8 +5,8 @@ import {BroadcasterService} from "../../common/services/broadcaster.service";
 import {HttpService} from "../../common/services/http.service";
 import { Store } from "@ngrx/store";
 
-import {State} from "../../state-management/state/main-state";
-import { SAVE_DIALOG } from "../../state-management/actions/main-action-creator";
+import {State, SAVE_DIALOG} from "../../state-management/state/main-state";
+
 
 
 @Component({
