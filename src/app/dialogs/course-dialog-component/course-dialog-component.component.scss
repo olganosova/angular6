@@ -20,3 +20,18 @@
 ::ng-deep .mat-calendar-body-cell-content{
   color:green;
 }
+::ng-deep .mat-calendar-body-selected{
+  color:white;
+}
+::ng-deep .mat-datepicker-popup .mat-calendar-next-button{
+  color:green;
+}
+::ng-deep .mat-datepicker-popup .mat-calendar-previous-button{
+  color:green;
+}
+::ng-deep .ng-star-inserted{
+  //color:green;
+}
+::ng-deep .mat-calendar-period-button{
+  color:darkgreen;
+}

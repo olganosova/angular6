@@ -1,6 +1,19 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
+//$general-typography: mat-typography-config(
+//  $font-family: '"Comic Sans MS", sans-serif',
+//  $body-2:        mat-typography-level(14px, 24px, 600)
+//);
+//
+//$secondary-typography: mat-typography-config(
+//  $font-family: 'Comic Sans MS, sans-serif'
+//);
+//
+//
+//// Be sure that you only ever include this mixin once!
+//@include mat-core($general-typography);
+
 $my-app-primary: mat-palette($mat-green, 800, 400, 900);
 $my-app-accent:  mat-palette($mat-green, 400, 400, 900);
 $my-app-warn:    mat-palette($mat-deep-orange);
@@ -8,3 +21,4 @@ $my-app-warn:    mat-palette($mat-deep-orange);
 $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
 @include angular-material-theme($my-app-theme);
+

@@ -2,11 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {BreakpointObserver, Breakpoints, BreakpointState} from '@angular/cdk/layout';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import {Observable} from 'rxjs';
+import { Store } from "@ngrx/store";
 
 import {CourseDialogComponentComponent} from './dialogs/course-dialog-component/course-dialog-component.component';
 import {HttpService} from './common/services/http.service';
 import {ConfigService} from './common/services/config.service';
 import {BroadcasterService} from "./common/services/broadcaster.service";
+import { State } from "./state-management/state/main-state";
+import { OPEN_DIALOG } from "./state-management/actions/main-action-creator";
 
 @Component({
   selector: 'app-root',
@@ -20,6 +23,8 @@ export class AppComponent implements OnInit {
   favoriteSeason: string;
   config: any;
   errorMessage:string = '';
+  panelOpenState: boolean = false;
+  savedForm: any;
 
   seasons = [
     'Winter',
@@ -37,7 +42,15 @@ export class AppComponent implements OnInit {
               private broadCaster: BroadcasterService,
               private dialog: MatDialog,
               public httpService: HttpService,
-              public configServ: ConfigService) {
+              public configServ: ConfigService,
+              private store:Store<State>) {
+    store.select('mainStoreReducer')
+      .subscribe( (data:State )=> {
+        this.savedForm = data.courseForm;
+
+      });
+
+
   }
 
   ngOnInit() {
@@ -63,13 +76,16 @@ export class AppComponent implements OnInit {
       left: '300px'
     };
 
-    dialogConfig.data = {
+    dialogConfig.data = this.savedForm ? this.savedForm:  {
       id: 1,
       title: 'Angular For Beginners',
       description: 'Descr 1',
       category: 'INTERMEDIATE',
-      complexity: '2'
+      complexity: '2',
+      startDate: new Date(2018, 5, 18)
     };
+
+    this.store.dispatch({ type: OPEN_DIALOG });
 
     const dialogRef = this.dialog.open(CourseDialogComponentComponent, dialogConfig);
 

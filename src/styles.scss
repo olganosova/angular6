@@ -1,8 +1,8 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-@import '~bootstrap/dist/css/bootstrap.css';
+//@import '~bootstrap/dist/css/bootstrap.css';
 
 body { margin: 0;
-
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background-color: azure;
 }
 
@@ -13,4 +13,8 @@ body { margin: 0;
 .sidenav {
   width: 200px;
   box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+.error{
+  color:red;
+  font-size:10pt;
 }

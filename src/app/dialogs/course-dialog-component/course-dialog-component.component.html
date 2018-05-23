@@ -6,7 +6,11 @@
     <input matInput
            placeholder="Course Description" required
            formControlName="description">
+
   </mat-form-field>
+  <div class="error" *ngIf="form.controls['description'].errors && form.controls['description'].errors['minlength']">
+    Course Description must be at least 4 characters long.
+  </div>
   <br/>
     <mat-radio-group class="complexity-radio-group" formControlName="complexity" layout="column" required>
       <mat-radio-button value="1" class="complexity-radio-button" ><span class="margin-right:20px">Easy</span></mat-radio-button>

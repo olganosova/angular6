@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {MatMenuTrigger} from "@angular/material";
+import { Store } from "@ngrx/store";
+import {State} from "../state-management/state/main-state";
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  stateKeeper: any ='';
+  savedForm: any;
 
-  constructor() { }
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+
+  constructor(private store:Store<State>) {
+    store.select('mainStoreReducer')
+      .subscribe( (data:State )=> {
+        this.stateKeeper = 'data is ' + data.counter;
+        this.savedForm = data.courseForm;
+
+      });
+  }
 
   ngOnInit() {
+  }
+
+  openMenu() {
+    this.trigger.openMenu();
   }
 
 }

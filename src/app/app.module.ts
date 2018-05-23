@@ -19,7 +19,8 @@ import {
   MatInputModule, MatListModule, MatPaginatorModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule,
   MatSortModule,
   MatTableModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatExpansionModule
 } from "@angular/material";
 
 import { AppComponent } from './app.component';
@@ -29,6 +30,9 @@ import { CourseDialogComponentComponent } from './dialogs/course-dialog-componen
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { mainStoreReducer } from "./state-management/reducers/main-reducer";
+import { StoreModule } from "@ngrx/store";
 
 @NgModule({
   declarations: [
@@ -61,7 +65,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgbModule.forRoot()
+    MatExpansionModule,
+    NgbModule.forRoot(),
+    StoreModule.forRoot({mainStoreReducer})
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
