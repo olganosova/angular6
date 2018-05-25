@@ -8,7 +8,8 @@ import {CourseDialogComponentComponent} from './dialogs/course-dialog-component/
 import {HttpService} from './common/services/http.service';
 import {ConfigService} from './common/services/config.service';
 import {BroadcasterService} from "./common/services/broadcaster.service";
-import { State, OPEN_DIALOG, SAVE_DIALOG } from "./state-management/state/main-state";
+import { State, OPEN_DIALOG, SAVE_DIALOG, LOAD_LOCAL_STORAGE } from "./state-management/state/main-state";
+import { saveState }  from  "./state-management/localStorage";
 
 
 @Component({
@@ -44,9 +45,14 @@ export class AppComponent implements OnInit {
               public httpService: HttpService,
               public configServ: ConfigService,
               private store:Store<State>) {
+    //check local storage
+    this.store.dispatch({ type: LOAD_LOCAL_STORAGE});
     store.select('mainStoreReducer')
       .subscribe( (data:State )=> {
         this.savedForm = data.courseForm;
+
+          saveState(data);
+
 
       });
 

@@ -58,4 +58,4 @@ in styles.scss: @import '~bootstrap/dist/css/bootstrap.css';
 
 NgRx STORE
 ng add @ngrx/store @ngrx/router-store @ngrx/effects @ngrx/store-devtools @ngrx/entity ngrx-store-freeze
-http://brianflove.com/2018/01/09/ngrx-getting-started/
+npm install ngrx-store-localstorage --save

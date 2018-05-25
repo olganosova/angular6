@@ -32,7 +32,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { mainStoreReducer } from "./state-management/reducers/main-reducer";
-import { StoreModule } from "@ngrx/store";
+import { StoreModule, ActionReducerMap, ActionReducer, MetaReducer  } from "@ngrx/store";
+import { localStorageSync } from 'ngrx-store-localstorage';
 
 @NgModule({
   declarations: [

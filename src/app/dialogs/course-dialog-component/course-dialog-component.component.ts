@@ -1,11 +1,35 @@
 import {Component, OnInit, Inject, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormControl, Validators, FormGroup} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
+import {MomentDateAdapter} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+
+
 import {BroadcasterService} from "../../common/services/broadcaster.service";
 import {HttpService} from "../../common/services/http.service";
 import { Store } from "@ngrx/store";
 
 import {State, SAVE_DIALOG} from "../../state-management/state/main-state";
+
+import * as _moment from 'moment';
+// tslint:disable-next-line:no-duplicate-imports
+
+
+const moment =  _moment;
+
+// See the Moment.js docs for the meaning of these formats:
+// https://momentjs.com/docs/#/displaying/format/
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'LL',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 
 
@@ -13,6 +37,14 @@ import {State, SAVE_DIALOG} from "../../state-management/state/main-state";
   selector: 'app-course-dialog-component',
   templateUrl: './course-dialog-component.component.html',
   styleUrls: ['./course-dialog-component.component.scss'],
+  providers: [
+    // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
+    // application's root module. We provide it at the component level here, due to limitations of
+    // our example generation script.
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS}
+    ]
   // encapsulation: ViewEncapsulation.None,
 })
 export class CourseDialogComponentComponent implements OnInit {

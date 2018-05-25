@@ -2,6 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatMenuTrigger} from "@angular/material";
 import { Store } from "@ngrx/store";
 import {State} from "../state-management/state/main-state";
+import * as _moment from 'moment';
+// tslint:disable-next-line:no-duplicate-imports
+
+
+const moment =  _moment;
 
 @Component({
   selector: 'app-dashboard',
